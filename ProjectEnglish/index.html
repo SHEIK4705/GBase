@@ -1,0 +1,50 @@
+<!Doctype html>
+<html>
+<head>
+<title>App-Intro</title>
+     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+<style>
+*{
+	margin:0
+	scroll-behavior:smooth;
+}
+body{
+	background:#000;
+	align-items:center;
+	justify-content:center;
+}
+div img{
+	margin-top:4%;
+	width:50%;
+}
+@media all and (max-width:850px){
+	div img{
+		width:70%;
+		margin-top:20%;
+	}
+}
+@media all and (max-width:650px){
+	div img{
+		width:80%;
+		margin-top:40%;
+	}
+
+}
+
+</style>
+<body>
+<div>
+<center>
+<img src="../ProjectImages/logo.png" alt="webPage Logo">
+</center>
+</div>
+</body>
+<script>
+
+function next(){
+	window.location = "home.html";
+}
+setInterval(next, 4000);
+</script>
+</html>

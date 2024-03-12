@@ -1,0 +1,232 @@
+*{
+        scroll-behavior:smooth;
+        margin:0;
+	overflow-x:hidden;
+}
+	
+body{
+	background-image:url("../ProjectImages/laptop1.jpg");
+	background-position:absolute;
+        background-attachment:fixed;
+        background-repeat:no-repeat;
+	background-size:cover;
+	color:#fff;
+	font-size:20px;
+	width:100%;	
+
+	  overflow-Y: scroll;
+}
+
+header li{
+	list-style:none;
+	margin:0 -5%;
+}
+.links li a, 
+.dropdown_menu li a{
+	text-decoration:none;
+	color:#fff;
+	&:hover{
+		color:orange;	
+	}
+}
+header{
+	margin:10 auto;
+	position:relative;
+	background:rgba(0, 0, 0, 0.8);	
+	backdrop-filter:blur(50px);
+	width:100%;
+}
+.navbar{
+	width:100%;
+	margin:auto;	
+	padding:20px;
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+}
+.logo h1{
+	font-family:"Russo One", "Anto";
+	color:#B0F123;
+	cursor:pointer;
+	&:hover{
+		color:orange;
+	}
+}
+.links{
+
+	display:flex;
+	gap:4rem;
+}
+
+.toggle_btn{
+	display:none;
+	cursor:pointer;
+	margin:0 10% 0 0;
+}
+.profile{
+	cursor:pointer;
+	margin:0 3%;
+	&:hover{
+		scale:1.2;
+	}
+	&:active{
+		scale:0.8;
+	}
+}
+header .dropdown_menu{
+	height:0;
+	width:100%;
+	opacity:0;
+	align-items:center;
+	justify-content:center;
+	background:transparent;
+	transition:all 0.5s ease;
+}
+.dropdown_menu.open{
+	display:none;
+	opacity:1;
+	height:220px;
+	margin:10px 0 0 0;
+}
+.dropdown_menu li{
+	display:none;
+	padding:15px 0;			
+	justify-content:center;
+	text-align:center;
+	margin:0 -5%;
+	&:hover{
+		background:rgba(255, 255, 255, 0.3);
+	}
+}
+.dropdown_menu.open li{
+	display:block;
+}
+h2.head{
+	color:#fff;
+}
+article{
+	margin:10px auto;
+	width:80%;
+}
+article h1{
+	text-shadow:2px 1px 0 #000;
+}
+.flex{
+	display:flex;
+	width:100%;
+	justify-content:center;
+}
+.flex div{
+	width:100%;
+	padding:20px;
+	margin:30px;
+	background:rgba(0, 0, 0, 0.1);
+	backdrop-filter:blur(50px);
+	border:1px solid #fff;
+	border-radius:10px;
+	align-items:center;
+	justify-content:center;
+	
+	&:hover{
+		scale:1.1;
+	}
+	&:active{
+		scale:0.9;
+	}
+}
+.aboutP{
+	margin:5% auto;
+	width:fit-content;
+	padding:30px;
+	background:rgba(0, 0, 0, 0.1);
+	backdrop-filter:blur(50px);
+	border:1px solid #fff;
+	border-radius:10px;
+	align-items:center;
+	justify-content:center;
+	
+}
+h2{
+	text-align:center;
+}
+h2 a{
+	text-decoration:none;
+	text-align:center;
+	color:#fff;
+}
+.aboutP p{
+	text-indent:70px;
+	line-height:40px;
+}
+.fa{
+     float:right;          
+     cursor:pointer;     
+     }
+.fa a{
+     text-decoration:none;
+     font-size:30px;
+     color:#fff;
+     
+} 
+
+footer{ 
+     
+        background:rgba(0, 0, 0, .8);
+	backdrop-filter:blur(50px);
+        padding:40px 20px;
+     
+}
+footer ul{
+     margin:0 50px;
+     list-style:none;
+     line-height:40px;
+     b{
+          font-size:20px;
+          color:#fff;
+     }
+     a{            
+          text-decoration:none;
+          color:#1878f3;
+          &:hover{
+               text-decoration: underline;
+          }
+     }
+}
+
+
+@media all and (max-width: 750px){
+	body{
+		background-image:url("../ProjectImages/mobile.jpg");
+	}
+	.navbar .links{
+		display:none;
+	}
+	.navbar .toggle_btn{
+		display:block;
+	}
+	.profile{
+		display:none;
+	}	
+	.dropdown_menu.open{
+		display:block;
+	}
+	.flex{
+		display:block;
+	}
+	.flex div{
+		width:80%;
+		margin:20px auto;
+	}
+	.aboutP{
+		width:fit-content;
+		padding:20px;
+	}
+	.aboutP p{
+		line-height:30px;
+		font-size:17px;
+	}
+	footer ul{
+		margin:0 20px;
+		font-size:17px;
+	}
+}

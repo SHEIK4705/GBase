@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>form</title>
+</head>
+
+<style>
+body{
+	background-position:absolute;
+        background-attachment:fixed;
+        background-repeat:no-repeat;
+	background-size:cover;
+	color:#fff;
+}
+
+div.box{
+background-color:transparent;
+backdrop-filter:blur(30px);
+margin:10px auto;
+margin-top:12%;
+border:1px solid #fff;
+width:fit-content;
+height:fit-content;
+border-radius:10px;
+padding:25px;
+box-shadow:0 0 10px gray;
+}
+
+.input{
+border:transparent;
+border-bottom:1.5px solid #fff;
+background:transparent;
+width:80%;
+margin:15px auto;
+outline:none;
+color:#fff;
+font-size:15px;
+&::placeholder{
+	color:#ccc;
+}
+}
+.input:hover{
+border-bottom:1px solid orange;
+}
+.input:focus{
+border-bottom:1px solid blue;
+}
+
+
+.btn{
+border:none;
+border-radius:20px;
+width:95px;
+height:37px;
+background-color:#fff;
+color:#000;
+cursor:pointer;
+margin:30px 10px 10px 10px;
+font-weight:700;
+font-size:17px;
+}
+.btn:hover{
+background-color:blue;
+color:#fff;
+}
+
+
+@media all and (max-width:750px){
+	div{
+		margin-top:20%;	
+	}
+}
+@media all and (max-width:420px){
+	div{
+		margin-top:40%;	
+	}
+}
+
+</style>
+
+<body background="../ProjectImages/deer2.jpg">
+<center>
+<div class="box">
+<form name="f1" method="GET" id="myForm" onsubmit="show()">
+<h1 align="center">LOG IN</h1>
+<input type="text" class="input" id="t1" name="t1" placeholder="#name...." required><br>
+<input type"date" class="input" name="t2" placeholder="#D.O.B...." required><br>
+<input type="email" class="input" name="t3" placeholder="#mail...." required><br>
+<input type="tel" class="input" name="t4" placeholder="#phone...." required><br>
+<input type="reset" onclick="no()" name="b2" class="btn" value="Clear"> 		<input type="submit" id="btn" class="btn" name"b1" value="Log In">
+</form>
+</div>
+</center>
+</body>
+
+<script>
+document.getElementById("t1").focus();
+var btn = document.getElementById("btn");
+var cont = document.getElementById("cont");
+
+function show(){	
+	alert("Login Successful!");
+}
+</script>
+</html>                                

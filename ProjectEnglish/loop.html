@@ -1,0 +1,93 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+     <title>loop</title>
+</head>
+<style>
+     body {
+          background: #000;
+          color:#fff;
+          font-size:20px;
+          width:fit-content;
+          height:fit-content;
+
+     }
+#cont{
+	position:absolute;
+	margin:8% auto;
+	  align-items:center;
+	  justify-content:center;
+}
+     input{
+          border-color:transparent;
+          border-bottom-color:red;
+          outline:none;
+          font-size:20px;
+          background: transparent;
+          color:white;
+	width:100%;
+     }
+     input:focus{
+          border-bottom-color:#1878F3;
+     }
+
+     button{
+          margin :10px;
+	  cursor:pointer;
+          font-size:20px;
+          width:100px;
+          height:40px;
+          background:#02f242;
+          border:none;          
+          border-radius:15px;
+          outline:none;
+     }
+
+@media all and (min-width:750px){
+	#cont{
+		
+		left:23%;
+	}
+}	
+</style>
+<body>
+<center>
+     <div id="cont">
+	<h2>Enter the word and enter how many times to print</h2>
+     <table cellspacing="15" >
+		
+          <tr>
+               <td>Word:</td>
+               <td><input type="text" name="t1" id="na" placeholder="#enter..."></td>
+          </tr>
+          <tr>
+               <td>Print times:</td>
+               <td><input type="number" name="t2" id="no" placeholder="#how many times..."></td>
+          </tr>
+     </table>
+     <button onclick="print()">Print</button></center>
+     <div id="msg">
+          
+     </div> 
+     </div>
+</center>     
+</body>
+<script> 
+     document.getElementById("na").focus();
+     var msg = document.getElementById("msg");
+     function print(){
+    
+     var na = document.getElementById("na").value;
+     var no = parseInt(document.getElementById("no").value);
+                    
+     for(i=1;i<=no;i++){
+         document.write("<br>" + i + ". " + na);
+     }     
+     }
+     
+     
+    
+</script>
+</html>

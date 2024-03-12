@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+     <title> Tense</title>
+     <!-- font -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+
+<style>
+     *{
+         scroll-behavior:smooth;
+      margin:0;
+     ul{                  
+          list-style:none;
+          text-decoration:none;
+     }
+     .d{
+          text-decoration:none;
+     }
+     .sidebar{
+          position:fixed;
+          left:-220px;          
+          width:220px;
+          height:100%;
+          background-color:#2d2e2e;
+          transition:all 0.5s ease;
+     }
+     .sidebar header{
+          font-size:25px;
+          font-weight:bold;
+          text-align:center;
+          line-height:110px;
+          background-color:#787878;
+          user-select:none;
+     }
+     .sidebar ul a{
+          display:block;
+          height:100%;
+          width:100%;
+          line-height:60px;
+          color:gray;
+          padding-left:30px;
+          font-size:16px;
+          box-sizing:border-box;
+          border-bottom:1px solid gray;
+          border-bottom:1px solid black;
+     }
+     .sidebar ul a:hover{
+          padding-left:45px;
+          color:white;
+     }
+     #check{
+          display:none;
+     }
+     label #btn,label #cancel{
+          position:fixed;
+          cursor:pointer;       
+          border-radius:3px;          
+          cursor:pointer;     
+     }
+     main{
+          margin:2% auto;
+          padding:15px;
+     }
+     label #btn{
+          left:0;
+          top:5px;
+          font-size:30px;
+          color:white;
+          padding:6px 10px;
+          transition:all .5s;
+     }
+     label #cancel{
+          z-index:1111;
+          left:-175px;
+          top:18px;
+          font-size:25px;
+          color:white;
+          padding:4px 8px;
+          transition:all .5s;
+          
+     }
+     #check:checked ~ .sidebar{
+          left:0px;
+     }
+     #check:checked ~ label #btn{
+          left:220px;
+          opacity:0;
+          pointer-events:none;
+     }
+     #check:checked ~ label #cancel{
+          left:175px;         
+         
+     }
+    
+     #theme{
+	cursor:pointer;
+     }
+     body{
+      font-family: "Philosopher", sans-serif;
+          font-weight: 400;
+          width:fit-content;
+          height:fit-content;
+          word-spacing:3px;
+          line-height:32px;                       
+     } 
+     a{
+          text-decoration:none;
+          color:#1878f3;
+     }
+     .hint{
+          border:2px solid gray;
+          padding:10px;
+          border-radius:7px;
+     }
+     .head{
+          background-color:black;
+          color:white;
+          width:97.7%;
+          padding:10px;          
+          position:fixed;
+          top:0;
+          left:0;
+     }
+     table{
+          width:100%;
+     }
+     th{
+          background-color:#ded7ec;
+          color:#000;          
+     }
+     td:hover{
+         background:rgba(0, 0, 0, 0.2);
+     }
+     th:hover{
+          background: #c4ea70;
+     }
+     h1,h4{
+          color:#1878f3;
+     }
+     .head span{
+          float:right;
+          margin:8px 10px;
+     }
+     aside img{
+          width:100%; 
+          border-radius:5px;       
+
+     }
+     .fa{
+     float:right;          
+     cursor:pointer;     
+     }
+.fa a{
+     text-decoration:none;
+     font-size:30px;
+     color:#fff;
+     
+} 
+footer{ 
+     
+   background:rgba(0, 0, 0, .9);
+     padding:40px 20px;
+     
+}
+footer ul{
+    
+     list-style:none;
+     b{
+          font-size:20px;
+          color:#fff;
+     }
+     a{            
+          text-decoration:none;
+          color:#1878f3;
+          &:hover{
+               text-decoration: underline;
+          }
+     }
+}
+
+@media screen and (min-width:750px){ 
+	body{
+		font-size:22px;
+		line-height:40px;
+	}
+	main{
+		width:80%;
+		margin:20px auto;
+	}
+	aside{
+		position:relative;
+		float:right;
+		width:40%;
+		margin:-90px 0px 20px 20px;
+		z-index:-1;
+
+	}
+	.letsgo{
+		float:right;
+		display:block;
+		margin:20px;
+	}
+	.hint{
+		border:0;
+	}
+	table{
+		
+		position:relative;
+		z-index:-1;
+		
+	}
+	
+}
+</style>
+
+<body>    
+     <h1 align="center" class="head" id="head">TENSE
+     <span class="material-symbols-outlined" id="theme">
+dark_mode
+</span> 
+     </h1>
+     
+     <div class="side_menu">
+     <input type="checkbox" name="c1" id="check">
+     <label for="check">
+          <!--<i class="fas fa-bars" id="btn"></i>
+          <i class="fas fa-times" id="cancel"></i> -->
+          <span style="font-size:35px" id="btn" class="material-symbols-outlined">
+menu
+</span>
+          <span style="font-size:30px; " id="cancel" class="material-symbols-outlined">
+cancel
+</span>
+          
+     </label>
+     <div class="sidebar">
+     <header>Menu</header>
+          <ul>
+               <li><a class="d" href="home.html"> Home</a></li>
+               <li><a class="d" href="past.html"> Past</a></li>
+               <li><a class="d" href="present.html"> Present</a></li>
+               <li><a class="d" href="future.html"> Future</a></li>
+               <li><a class="d" href="material.html"> Materials</a></li>   
+          </ul>
+     </div>
+     </div>
+     
+     <br><br><br>
+<main>  
+<article>
+        
+<br>
+<section>
+     <aside>        
+     <img src="../ProjectImages/tense.png" alt="tense">
+     </aside><br>
+     <div class="body">
+     <h1 class="s_head">What are Tenses in English?</h1>
+     <p><dd>Tense in language tells us when something happened.</dd></p> 
+     <p>There are three main tenses:</p>
+     <ol>
+          <li><b><a href="past.html">Past</a></b> (what already happened)</li>
+          <li> <b><a href="present.html">Present</a></b> (what's happening now)</li>
+          <li><b><a href="future.html">Future</a></b> (what will happen)</li>
+     </ol>
+     <br>
+     
+   <section>    
+     <div class="hint">
+     <p><center><b style="color:red">குறிப்பு: </b> ஆங்கில இலக்கணத்தில் Future form of verb இல்லை. Future tense-ஐ குறிக்க Modal Auxiliaries-ஆக இருக்கும் shall, will-ஐ பயன்படுத்துகிறோம்.</center></p>
+     </div>
+   </section>
+</section>
+<br>
+     
+<section>
+     
+     <h4>Each tense has 4 sub divisions (துணைப் பிரிவுகள்)</h4>
+  
+	  <table cellspacing="10px" border="1" cellpadding="5px">
+          <center>
+      
+          <tr>
+               <th>Present</th>
+               <th>Past </th>            
+               <th>Future</th>
+          </tr>
+          <tr align="center">
+               <td>Simple Present</td>
+               <td>Simple Past</td>
+               <td>Simple Future</td>
+          </tr>
+          <tr align="center">
+               <td>Present Continuous</td>
+               <td>Past Continuous</td>
+               <td>Future Continues</td>
+          </tr>
+          <tr align="center">
+               <td>Present Perfect</td>
+               <td>Past Perfect</td>
+               <td>Future Perfect</td>
+          </tr>
+          <tr align="center">
+               <td>Present Perfect Continuous</td>
+               <td>Past Perfect Continuous</td>
+               <td>Future Perfect Continuous </td>
+          </tr>
+          </center>
+     </table>
+      <br>
+	<aside class="letsgo">    
+     <img src="https://i.postimg.cc/L5FTWntJ/let-s-go.jpg" alt="img">
+     </aside>
+	<br>
+     <h4>Verb Forms:</h4>
+     <ol>
+          <li>Simple Present-இல் Present form of verb பயன்படுத்த வேண்டும். Simple Past-இல் Past form of verb பயன்படுத்த வேண்டும். Simple Future-இல் shall/will + Present form of verb பயன்படுத்த வேண்டும்.</li>
+          <li>Present Continuous-இல் am/is/are + Present Participle form of verb (verb+ing) பயன்படுத்த வேண்டும். Past Continuous-இல் was/were + Present Participle form of verb (verb+ing) பயன்படுத்த வேண்டும். Future Continuous- இல் shall be/will be + Present Participle form of verb (verb+ing) பயன்படுத்த வேண்டும்.</li>
+          <li>Perfect tense-இல் have/has / had / shall have/will have + Past Participle form of verb பயன்படுத்த வேண்டும்.</li>
+          <li>Perfect Continuous tense-இல் have/has / had / shall have/will have + been + Present Participle form of verb (verb+ing) பயன்படுத்த வேண்டும்.</li>
+     </ol>
+     </div> 
+</section>     
+</article>
+</main>
+<!--------------- footer ----------------->
+
+<footer>
+     <div><i class="fa"><a href="home.html">&#xf015;</a></i></div>          
+     </div>  
+     <b style="color:#fff">Other Links</b>
+     <br>
+     <ul>
+
+          <li><a href="tense.html">Tense</a>
+             <ul>
+                <li><a href="present.html">Present Tense</a></li>
+                <li><a href="past.html">Past Tense</a></li>
+                <li><a href="future.html">Future Tense</a></li>
+             </ul></li><br>
+          <li><a href="preposition.html">Preposition</a></li>
+          <li><a href="adjective.html">Adjectives</a></li>
+          <li><a href="article.html">Articles</a></li> 
+          <li><a href="pronoun.html">Pronoun</a></li>
+          <li><a href="degrees.html">Degrees of Comparison</a></li>
+          <li><a href="sentencePattern.html">Sentence Pattern</a></li>
+          <li><a href="whType.html">Wh type Question</a></li> 
+          <li><a href="qtag.html">Question Tag</a></li>
+</ul>
+<br>
+ <b style="color:#fff">Vocabulary :</b>
+     <ul>
+           <li><a href="collocation.html">Collocation</a></li>
+          
+     </ul>       
+</footer>     
+</body>
+<script>
+     var ico = document.getElementById('theme');     
+     var x = document.getElementsByTagName("BODY")[0];
+     var y = document.querySelector(".hint");  
+      
+     var A = () => { 
+         
+         x.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+         x.style.color = "#fff";
+                                
+         ico.innerHTML = "light_mode";          
+     };
+var B = () => { 
+           x.style.backgroundColor = "#fff";
+           x.style.color = "#000";  
+           
+           ico.innerHTML = "dark_mode";            
+        };
+     
+     
+     ico.addEventListener( "click", function(e){
+  var methodsToInvoke = [ A, B ];
+  var el = e.currentTarget;
+  //el.lastInvokedIndex = el.lastInvokedIndex || 0;
+  el.lastInvokedIndex = el.lastInvokedIndex >= methodsToInvoke.length ? 0 : (el.lastInvokedIndex || 0);
+  methodsToInvoke[el.lastInvokedIndex++]();
+});
+        
+</script>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+     <title> About</title>
+     <!-- font -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+     <link rel="stylesheet" href="home.css" />
+</head>
+
+<body>
+<header>
+   <div class="navbar">
+	<div class="logo"><h1>Grammar Base</h1></div>
+	<ul class="links">
+	    <li> <a href="home.html">Home</a></li>
+	    <li> <a style="color:cyan" href="#"><b>About</b></a></li>
+	    <li> <a href="moreTools.html"> More Tools</a></li>
+	</ul>
+	<div class="profile">
+	      <span style="font-size:35px" class="material-symbols-outlined">
+		account_circle
+ 	      </span>
+	</div>
+	
+	<div class="toggle_btn" onclick="show()">
+		
+	      <span style="font-size:35px" id="btn" class="material-symbols-outlined">
+		menu
+	      </span>
+	
+	</div>
+	
+   </div>
+
+   <div class="dropdown_menu">
+	    <li> <a href="home.html">Home</a></li>
+	    <li> <a href="about.html">About</a></li>
+	    <li> <a href="moreTools.html">More Tools</a></li>
+	    <li> <a href="#">Profile</a></li>
+   </div>
+</header>
+<br>
+<article>
+
+	<br>
+	<div class="aboutP">
+	<h2>ABSTRACT</h2><br>
+		<p>This project is about fostering better English language teaching by creating a better pedagogical grammar of the English language, creating better learning materials. There are a number of sub-projects as part of the global English Ideas Project. You can scroll down to see the projects and ideas or use the page links above. Much of the material is free to use.</p>
+		<br>
+		<p>The project is based on a grammar learning website, specifically designed for first-year engineering students. Our website runs on HTML, CSS, and JavaScript programs, making it easy to navigate and learn from. It covers various grammar topics, including tenses, prepositions, adjectives, pronouns, imperatives, and more, providing simple definitions and examples for easy comprehension. We also offer exercises tailored to university standards, aiding students in practicing and mastering grammatical concepts to score well in exams. Additionally, we provide supplementary learning materials such as Tamil notes and unit notes for core subjects. To add an element of fun, we've incorporated activities like number games and word printer for students to enjoy</p>
+	</div>
+
+</article>
+
+
+<!--------------- footer ----------------->
+
+<footer>
+     <div><i class="fa"><a href="home.html">&#xf015;</a></i></div>          
+     </div>  
+     <b style="color:#fff">Other Links</b>
+     <br>
+     <ul>
+
+          <li><a href="tense.html">Tense</a>
+             <ul>
+                <li><a href="present.html">Present Tense</a></li>
+                <li><a href="past.html">Past Tense</a></li>
+                <li><a href="future.html">Future Tense</a></li>
+             </ul></li><br>
+          <li><a href="preposition.html">Preposition</a></li>
+          <li><a href="adjective.html">Adjectives</a></li>
+          <li><a href="article.html">Articles</a></li> 
+          <li><a href="pronoun.html">Pronoun</a></li>
+          <li><a href="degrees.html">Degrees of Comparison</a></li>
+          <li><a href="sentencePattern.html">Sentence Pattern</a></li>
+          <li><a href="whType.html">Wh type Question</a></li> 
+	  <li><a href="qtag.html">Question Tag</a></li> 
+</ul>
+<br>
+ <b style="color:#fff">Vocabulary :</b>
+     <ul>
+           <li><a href="collocation.html">Collocation</a></li>
+          
+     </ul>       
+</footer>     
+
+</body>
+
+<script>
+
+const btn = document.querySelector('#btn');
+const dropdownMenu = document.querySelector('.dropdown_menu');
+const check = document.getElementById("check");
+function show(){
+	dropdownMenu.classList.toggle('open')
+const isOpen = dropdownMenu.classList.contains('open')
+ btn.innerHTML = isOpen
+   ?'close'
+   :'menu'
+}
+
+</script>
+</html>

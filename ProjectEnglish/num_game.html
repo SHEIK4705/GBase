@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Number Game</title>
+</head>
+<style>
+body { 
+	background-image:url("../ProjectImages/laptop1.jpg");
+	background-position:absolute;
+        background-attachment:fixed;
+        background-repeat:no-repeat;
+	background-size:cover;     color:white ;
+     justify-content:center ;
+     align-items:center;
+}
+.main{
+     background: rgba(0, 0, 0, 0.2);   
+     backdrop-filter:blur(20px);
+     width:25%;
+     height:fit-content;
+     padding:40px 20px 20px 20px;
+	border:1px solid #fff;
+     border-radius:30px;
+     box-shadow:-4px -4px 20px #333, 4px 4px 20px #333;
+     margin:10% auto;
+}  
+#num,#rand{
+     width:100%;     
+     background: transparent;
+     outline:none;
+     border:none;
+     margin:40px 0;
+     border-bottom:2px solid #1878f3;
+     color:#fff;
+     font-size:20px;
+	&::placeholder{
+		color:#ccc;
+	}
+}
+#num:focus {
+     border-bottom:2px solid lime;
+}
+label{
+     font-size:22px;
+     font-weight:bolder;
+}
+#btn1,#btn2{
+     position: flex;
+     background:#ded7ec;
+     width:55%;
+     cursor:pointer;
+     padding:12px 10px;
+     border:none;
+     border-radius:10px;
+     font-size:20px;
+     font-weight:bold;
+     margin:5% 22%;
+     box-shadow:0 0 8px #ded7ec;
+}
+#btn1:hover,#btn2:hover{
+     background:#c4ea70;
+}
+#btn2{
+     display: none ;
+     background:#1878f3;
+     color:#fff;
+     box-shadow:0 0 8px #1878f3;
+}
+#result{
+     font-weight:bolder;
+     font-size:25px;     
+     margin:10% 0;
+}
+
+@media all and (max-width: 750px){
+	body{
+		background-image:url("../ProjectImages/mobile.jpg");
+	}
+	.main{
+		margin:auto;
+		margin-top:30%;
+		width:80%;
+		
+	}
+
+}
+</style>
+<body>  
+     
+      <div class="main">
+        <div>
+          <label>Enter Integer :</label>
+      </div> 
+      <div>   
+        <input type="number" min="0" name="num" max="10" id="num" placeholder="Enter number between 1-10" list="input" required>
+         
+     <!--  <datalist id="input">
+             <option value="0">0</option>
+             <option value="1">1</option>
+             <option value="2">2</option>
+             <option value="3">3</option>
+             <option value="4">4</option>
+             <option value="5">5</option>
+             <option value="6">6</option>
+             <option value="7">7</option>
+             <option value="8">8</option>
+             <option value="9">9</option>
+             <option value="10">10</option>
+        </datalist>
+      </div> -->
+  
+      <div><label>Computer Guessing Number :</label></div>
+          <div id="rand"></div>
+     
+      <button id="btn1" onclick="val()" >Submit</button>
+      <button id="btn2" onclick="restart()" >Restart</button>
+   
+      <center>
+      <div id="result"></div>
+      </center>
+       
+  </div>   
+</body>
+<script>
+     alert("please enter the number between 0-10 only");    
+    alert("Give any number on input\nIf the number is equal to the computer guessing number\nYou Won");
+    alert("This Game Check Your Luck");
+    var num = document.getElementById('num');
+    var rand = document.getElementById('rand');
+    var result = document.getElementById('result');
+    var sub = document.getElementById('btn1'); 
+    var res = document.getElementById('btn2');
+         
+    num.focus(); 
+         
+function val() {
+      
+  if(num.value == "" || isNaN(num.value)){
+           alert("Please Enter anyone Number between 0 and 10");
+           num.focus();
+  }
+  else{
+             
+      if((num.value >= 0) && (num.value <= 10)) { 
+         sub.style.display = "none";
+         res.style.display = "block";               
+         rand.innerHTML = Math.floor(Math.random()*11);   
+               
+         if(num.value == rand.innerText) {
+             result.innerHTML = "Excellent!\nYou soo lucky!";
+              result.style.color = "lime";
+         }else {
+             result.innerHTML = "Better Luck in next time"; 
+             result.style.color = "red";            
+         } 
+      }            
+      else{
+           alert("Enter the number between 0 and 10 only");
+           num.value = "";
+           num.focus();
+      }
+   }   
+      
+}
+     
+function restart() {
+     res.style.display = "none";
+     sub.style.display = "block";
+     num.value = "";
+     num.focus();
+     rand.innerText = "";
+     result.innerHTML = "";
+}
+</script>
+</html>

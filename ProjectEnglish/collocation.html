@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+     <title>Collocation</title>
+     <!--------- font --------->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<!-- font and css file -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+     <script src="tenseQuiz.js"></script>
+</head>
+<style>
+*{
+      scroll-behavior:smooth;
+      margin:0;
+}
+body {
+      background:rgba(167, 228, 252, .5);
+      word-spacing:3px;
+      line-height:38px;
+      font-family: "Philosopher", sans-serif;
+      font-weight: 400;
+}
+.title{
+      background:rgba(167, 228, 252, .9);
+      padding:15px 10px;
+}
+header{
+      padding:20px 20px 20px 20px;
+      margin:3%;
+      height:220px;
+}
+nav.scroll ul{
+      position:fixed;
+      display:flex;
+      top:0%;
+      left:0;
+      border:gray;
+      background:rgba(0, 0, 0, 0.2);
+      width:100%;
+      height:50px;
+      overflow-x: scroll;
+      white-space:nowrap;
+      align-items: center;
+      transition:all 0.6s;
+}
+nav.scroll ul a{
+      padding:20x 20px 20px 0;
+      margin:50px 50px 50px 0;
+      font-weight:bolder;
+      color:#1878f3;
+      font-size:17px;
+      transition:all 0.6s;
+}
+nav ul a, nav ul li{
+      list-style:none;
+      font-weight:600;
+      font-size:20px;
+      text-decoration:none;
+      color:#1878f3;
+      line-height:32px;
+      transition:all 0.6s;
+}
+
+main div{
+      width:fit-content;
+      height:fit-content;
+      margin:5%;
+      font-size:18px;
+      text-indent:70px;
+}
+.sub{
+      text-indent:0;
+      font-size:20px;
+}
+.head{
+      margin-left:3%;
+      margin-right:3%;
+      color:red;
+}
+
+li{
+      text-indent:0;
+}
+
+/* Quiz */
+#result{
+      font-size:25px;
+      font-weight:800;
+}
+.buttons{
+      display:flex;
+      justify-content: space-between;
+}
+button{
+      height:fit-content;
+      width:100%;   
+      background-color:#1878F3;   
+      border-radius:5px;
+      border-style:none;
+      padding:13px;
+      outline:none; 
+      font-size:20px;
+      font-weight:bolder;
+      color:white;
+      cursor:pointer;
+      text-align:center;   
+      margin:15px;    
+}
+button:hover{
+      background-color:#55ff58;
+}
+#answer{
+      display :none;
+      border:2px solid #000;
+      padding :10px;
+      background :#cccecf;
+}
+.quiz{
+      display: none;
+      background:rgba(255, 255, 255, 0.4);
+      margin:40px 20px;
+      border:.5px solid gray;
+      box-shadow:0 0 10px gray;
+      border-radius:10px;
+      padding:20px 20px;
+      height:fit-content;
+
+}
+.openTest span, .up b span{
+      position:fixed;
+      bottom:10%;
+      right:3%;
+      bottom:10%;
+      background:rgba(45, 240, 31, 0.8);
+      color:#000;
+      cursor:pointer;
+      padding:10px;
+      align-items: center;
+      justify-content: center;
+      border-radius:50px;
+      transition:all 0.5 ease;  
+}
+.up b span{
+      bottom:20%;
+      background:rgba(0, 0, 0, 0.4);
+      color:#fff;
+}
+.close{
+      width:90%;
+      height:fit-content;
+      padding:7px;
+      text-align: center;
+      background:#000;
+      color:#fff;
+      cursor:pointer;
+      margin:10px auto;
+      border-radius:10px;
+}
+.closeIco{
+      float:right;
+      margin:0 10px;
+      cursor:pointer;
+}
+.fa{
+     float:right;          
+}
+.fa a{
+     text-decoration:none;
+     font-size:30px;
+     color:#000;
+} 
+footer{ 
+     
+   background:rgba(167, 228, 252, .9);
+     padding:40px 20px;
+     margin:0;
+}
+footer ul li{
+     list-style:none;
+     b{
+          font-size:20px;
+     }
+     a{            
+          text-decoration:none;
+          color:blue;
+          &:hover{
+               text-decoration: underline;
+          }
+     }
+}
+
+@media screen and (min-width:750px){ 
+
+	body{
+		font-size:20px;
+		line-height:40px;
+	}
+	.title{
+		text-align:center;
+	}
+	
+	main{
+		width:80%;
+		margin:30px auto;
+	}
+	header, footer{
+		margin:20px auto;
+	}
+	.up ,.openTest, #theme{
+		right:0;
+		margin:20px;
+	}
+        .openTest{
+		bottom:5%;
+	}
+		.clearBtn,#btn{
+		justify-content:space-between;
+		margin:15px 50px;
+		cursor:pointer;
+	}
+	.quiz{
+		width:70%;
+		margin:20px auto;
+		margin-top:60px;
+		line-height:40px;
+		font-size:20px;
+		padding:30px;
+	}
+}
+</style>
+<body>
+     <h1 class="title">Collocation</h1>
+     <header>    
+     <nav>
+          <h2 class="content" id="content">Contents..</h2>         
+         
+             <ul>
+                   <li><a href="#collocation">What is Collocation</a></li>
+                   <li><a href="#types">Types of Collocation</a></li>
+                   <li><a href="#example">Examples</a></li>
+                   <li><a href="#excercise">Excercise</a></li>
+              </ul>           
+     </nav>  
+     </header>          
+<main id="main">
+      <h2 class="head" id="collocation">What is Collocation?</h2>
+     <div>         
+          <p>Collocation is 'a predictable combination of words'</p>
+          <p>A collocation is a natural combination of words that are closely related to each other.</p>
+           <p>for example we can say heavy rain but not strong rain because it does not sound right' likewise, we can say 'do exercise' but not 'make exercise'. Collocations can be made up of any kinds of words such as verbs, nouns, adverbs and adjectives.</p>
+     </div>
+
+     <h2 class="head" id="types">Types of Collocation</h2>
+     <div>         
+          <ul>
+               <li><b>adverb  +  adjective : </b> Completely Satisfied</li>
+               <li><b>adjective  +  noun : </b>excruciating pain </li>
+               <li><b>noun  +  noun : </b>a surge</li>
+               <li><b>noun  +  verb : </b>lions roar </li>
+               <li><b>verb + noun :</b> commit suicide </li>
+               <li><b>verb + expression with a preposition by its side :</b> burst into tears </li>
+               <li><b>verb + adverb : </b>wave frantically </li>
+          </ul>
+     </div>
+
+     <h2 class="head" id="example">Examples</h2>
+     <div>
+          
+     </div>
+     <h2 class="head">Sample Collocation</h2>
+     <div>    
+          <p class="sub"><b>1. adverb  +  adjective </b></p>
+          <ul>
+               <li>Invading that country was an <b>utterly stupid</b> thing to do.</li>
+               <li>We entered a <b>richly decorated</b> room.</li>
+               <li>Are you <b>fully aware</b> of the implications of your action?</li>
+          </ul>
+          
+          <p class="sub"><b>2. adjective  +  noun  </b></p>
+          <ul>
+               <li>The doctor ordered him to take <b>regular exercise.</b></li>
+               <li>The Titanic sank on its <b>maiden voyage.</b></li>
+               <li>He was writhing on the ground in <b>excruciating pain.</b></li>
+          </ul>
+          
+          <p class="sub"><b>3. noun  +  noun </b></p>
+          <ul>
+               <li>Let's give Mr Jones a <b>round of applause.</b></li>
+               <li>The <b>ceasefire agreement </b>came into effect at 11am.</li>
+               <li>I'd like to buy two <b>bars of soap</b> please.</li>              
+          </ul>
+          
+          <p class="sub"><b>4. noun  +  verb </b></p>
+          <ul>
+               <li>The <b>lion</b> started <b>to roar</b> when it heard the <b>dog barking.</b></li>
+               <li><b>Snow was falling</b> as our <b>plane took off.</b></li>
+               <li>The <b>bomb went off </b>when he started the car engine.</li>
+          </ul>
+          
+          <p class="sub"><b> 5. verb + noun </b></p>
+          <ul>
+               <li>The prisoner was hanged for <b>committing murder.</b></li>
+               <li>I always try to <b>do my homework</b> in the morning, after <b>making my bed.</b></li>
+               <li>He has been asked to <b>give a presentation</b> about his work.</li>
+          </ul>
+          
+          <p class="sub"><b>6. verb + expression with a preposition by its side </b></p>
+          <ul>
+               <li>We had to return home because we <b>had run out of money.</b></li>
+               <li>At first her eyes <b>filled with horror</b>, and then she <b>burst into tears.</b></li>
+               <li>Their behaviour was enough to <b>drive anybody to crime.</b></li>
+          </ul>
+          
+          <p class="sub"><b>7. verb + adverb </b></p>
+         <ul>
+              <li>She <b>placed</b> her keys <b>gently</b> on the table and sat down.</li>
+              <li>Mary <b>whispered softly</b> in John's ear.</li>            
+              <li>I <b>vaguely remember</b> that it was growing dark when we left.</li>
+         </ul>    
+     </div>
+     
+     <div>
+          <button id="excercise" style="margin:20px auto" onclick="openQuiz()">Excercise</button>
+     </div>
+     
+</main>
+
+<!--------- scroll bar -------------->
+     <div onclick="scrollToTop()" class="up"><b><span class="material-symbols-outlined">
+keyboard_double_arrow_up
+</span></b>
+     </div>     
+     <div class="openTest" onclick="openQuiz()"><span class="material-symbols-outlined">
+quiz
+</span>
+     </div>
+<!-------------- simple quiz -------------->
+
+<div id="quiz" class="quiz">
+    <div onclick="hide()" class="closeIco">
+    <span style="font-size:30px; " id="cancel" class="material-symbols-outlined">
+cancel
+</span>
+    </div>
+  <div class="exercise">     
+  <h2>Exercise</h2>
+  <br>
+  <form id="myForm" onsubmit="show()">
+
+     <p><b>1. To _________ money is not the purpose of life.</b></p>
+     <input type="radio" name="qn1"> do<br>
+     <input type="radio" name="qn1"> take<br>
+     <input type="radio" name="qn1" id="ans1"> make<br>
+     <input type="radio" name="qn1"> get<br>  
+     
+       <p><b>2. Don't _________ attention to what he says he is just pretending to be nice.</b></p>
+     <input type="radio" name="qn2"> make<br>
+     <input type="radio" name="qn2"> express<br>
+     <input type="radio" name="qn2"> do<br>
+     <input type="radio" name="qn2" id="ans2"> pay<br>  
+     
+      <p><b>3. She is eager to ________ progress in her field of studying.</b></p>
+     <input type="radio" name="qn3" id="ans3"> make<br>
+     <input type="radio" name="qn3"> save<br>
+     <input type="radio" name="qn3"> catch<br>
+     <input type="radio" name="qn3"> take<br>  
+     
+      <p><b>4. Please ________ me a favour of not smoking here.</b></p>
+     <input type="radio" name="qn4"> make<br>
+     <input type="radio" name="qn4" id="ans4"> do<br>
+     <input type="radio" name="qn4"> give<br>
+     <input type="radio" name="qn4"> get<br>  
+      
+      <p><b>5. If you can't _______ your promise what excuse will you ______?</b></p>
+     <input type="radio" name="qn5" id="ans5"> keep/make<br>
+     <input type="radio" name="qn5"> make/keep<br>
+     <input type="radio" name="qn5"> keep/do<br>
+     <input type="radio" name="qn5"> do/keep<br>  
+     
+      <p><b>6. He ________ the law and therefore went to jail.</b></p>
+     <input type="radio" name="qn6"> took<br>
+     <input type="radio" name="qn6"> saved<br>
+     <input type="radio" name="qn6" id="ans6"> broke<br>
+     <input type="radio" name="qn6"> pay<br>
+     
+      <p><b>7. You ______ a mistake if you think he is clever.</b></p>
+     <input type="radio" name="qn7"> break<br>
+     <input type="radio" name="qn7" id="ans7"> make<br>
+     <input type="radio" name="qn7"> catch<br>
+     <input type="radio" name="qn7"> take<br>
+     
+     <p><b>8. While getting into trouble, try to ________ the issues by yourself.</b></p>
+     <input type="radio" name="qn8" > against<br>
+     <input type="radio" name="qn8"> express<br>
+     <input type="radio" name="qn8"> pay<br>
+     <input type="radio" name="qn8" id="ans8" > tackle<br> 
+            
+     <p><b>9. The team could _______ the attention of audience in the first match.</b></p>
+     <input type="radio" name="qn9"> do<br>
+     <input type="radio" name="qn9"> make<br>
+     <input type="radio" name="qn9" id="ans9"> catch<br>
+     <input type="radio" name="qn9"> take<br>
+     
+     <p><b>10. They ________ her great compliments on her cooking.</b></p>
+     <input type="radio" name="qn10" id="ans10"> paid<br>
+     <input type="radio" name="qn10"> gave<br>
+     <input type="radio" name="qn10"> made<br>
+     <input type="radio" name="qn10"> get<br>     
+  
+    <br>
+    <div class="buttons">
+    <button type="reset" onclick="noo()" value="Restart">Restart</button>
+    <button class="btn" id="btn" type="submit">Check</button>
+    </div>     
+     <center>
+          <br>     
+     <div id="result"></div>
+     </center>
+     
+     <div id="answer">
+          <h2 align="center">Answers</h2>
+          <b>
+               1. make <br>
+               2. pay <br>
+               3. make <br>
+               4. do <br>
+               5. keep/make <br>
+               6. broke <br>
+               7. make <br>
+               8. tackle <br>
+               9. catch <br>
+               10. paid <br>
+          </b>
+     </div>
+                     
+  </form>
+  
+    <div class="close" onclick="hide()">
+          Close
+    </div>
+  </div>
+</div>
+<!--------------- footer ----------------->
+
+<footer>
+     <div><i class="fa"><a href="home.html">&#xf015;</a></i></div>          
+     </div>  
+     <b>Other Links</b>
+     <br>
+     <ul>
+          <li><a href="tense.html">Tense</a>
+             <ul>
+
+          <li><a href="tense.html">Tense</a>
+             <ul>
+                <li><a href="present.html">Present Tense</a></li>
+                <li><a href="past.html">Past Tense</a></li>
+                <li><a href="future.html">Future Tense</a></li>
+             </ul></li><br>
+          <li><a href="preposition.html">Preposition</a></li>
+          <li><a href="adjective.html">Adjectives</a></li>
+          <li><a href="article.html">Articles</a></li> 
+          <li><a href="pronoun.html">Pronoun</a></li>
+          <li><a href="degrees.html">Degrees of Comparison</a></li>
+          <li><a href="sentencePattern.html">Sentence Pattern</a></li>
+          <li><a href="whType.html">Wh type Question</a></li>
+          <li><a href="qtag.html">Question Tag</a></li>
+</ul>
+<br>
+ <b>Vocabulary :</b>
+     <ul>
+           <li><a href="collocation.html">Collocation</a></li>
+          
+     </ul>       
+</footer>     
+
+</body>
+</html>
