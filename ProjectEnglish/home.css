@@ -216,6 +216,12 @@ footer ul{
 	.flex div{
 		width:80%;
 		margin:20px auto;
+		&:hover{
+			scale:1;
+		}
+		&:active{
+			scale:0.9;
+		}
 	}
 	.aboutP{
 		width:fit-content;
